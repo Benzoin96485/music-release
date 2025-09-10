@@ -15,18 +15,18 @@ jobs:
       - name: Convert format
         run: |
           echo `ls`
-          docker run -v .:/workspace benzoin96485/musescore:v1 mscore test.mxl -o test.mp3
-          docker run -v .:/workspace benzoin96485/musescore:v1 mscore test.mxl -o test.pdf
-          docker run -v .:/workspace benzoin96485/musescore:v1 mscore test.mxl -o test.mid
+          docker run -v .:/workspace benzoin96485/musescore:v1 mscore farewell/farewell.mscx -o farewell.mp3
+          docker run -v .:/workspace benzoin96485/musescore:v1 mscore farewell/farewell.mscx -o farewell.pdf
+          docker run -v .:/workspace benzoin96485/musescore:v1 mscore farewell/farewell.mscx -o farewell.mid
       - name: Create Release
         uses: ncipollo/release-action@v1.14.0
         with:
           artifacts: |
-            ./test.mp3
-            ./test.pdf
-            ./test.mxl
-            ./test.mid
+            ./farewell.mp3
+            ./farewell.pdf
+            ./farewell.mid
+            ./farewell/farewell.mscx
           body: |
-            test text
+            I released a new song called Farewell.
     
           
